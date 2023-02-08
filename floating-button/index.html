@@ -20,38 +20,81 @@
 
         body {
             background-color: var(--color3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .floating-button {
+            position: relative;
         }
         
         .floating-button button {
+            position: absolute;
             background-color: var(--color1);
             border: none;
             border-radius: 50%;
             padding: 10px 12px;
+            transition: all 300ms;
         }
 
         .floating-button button img {
             width: 30px;
+            transition: all 300ms;
         }
 
-    </style>
+        .trigger {
+            cursor: pointer;
+        }
+        
+        </style>
 </head>
 <body>
     <div class="floating-button">
-        <button class="trigger">
-            <img src="cross.png" alt="cross">
-        </button>
         <button class="validate">
-            <img src="validate.png" alt="validate">
-        </button>
-        <button class="delete">
-            <img src="delete.png" alt="delete">
+            <img src="validate.png" alt="validate"> 
         </button>
         <button class="cancel">
             <img src="cancel.png" alt="cancel">
         </button>
+        <button class="delete">
+            <img src="delete.png" alt="delete">
+        </button>
+        <button class="trigger">
+            <img src="cross.png" alt="cross">
+        </button>
     </div>
     <script>
+        let validate_btn = document.querySelector('.validate'); // lettre
+        let delete_btn = document.querySelector('.delete'); // github
+        let cancel_btn = document.querySelector('.cancel'); // telephone
+        let trigger_btn = document.querySelector('.trigger'); // location
+        let active = false;
 
+        trigger_btn.addEventListener('click', function () {
+            console.log(active);
+            if (active) {
+                [validate_btn, delete_btn, cancel_btn].forEach(value => {
+                    value.style.top = 0;
+                    value.style.left = 0;
+                });
+                trigger_btn.style.backgroundColor = 'var(--color1)';
+                trigger_btn.style.scale = 1;
+                trigger_btn.querySelector('img').style.rotate = "0deg";
+
+                
+            } else {
+                validate_btn.style.top = "-90px";
+                delete_btn.style.top = "-70px";
+                delete_btn.style.left = "-70px";
+                cancel_btn.style.left = "-90px";
+                trigger_btn.style.backgroundColor = 'var(--color2)';
+                trigger_btn.style.scale = .8;
+                trigger_btn.querySelector('img').style.rotate = "45deg";
+            }
+            active = !active;
+        });
     </script>
 </body>
 </html>
