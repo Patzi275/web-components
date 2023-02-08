@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Button</title>
+    <style>
+        :root {
+            --color1: #9397FD;
+            --color2: #454673;
+            --color3: #15013A;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing:border-box;
+        }
+
+        body {
+            background-color: var(--color3);
+        }
+        
+        .floating-button button {
+            background-color: var(--color1);
+            border: none;
+            border-radius: 50%;
+            padding: 10px 12px;
+        }
+
+        .floating-button button img {
+            width: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="floating-button">
+        <button class="trigger">
+            <img src="cross.png" alt="cross">
+        </button>
+        <button class="validate">
+            <img src="validate.png" alt="validate">
+        </button>
+        <button class="delete">
+            <img src="delete.png" alt="delete">
+        </button>
+        <button class="cancel">
+            <img src="cancel.png" alt="cancel">
+        </button>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>
